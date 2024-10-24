@@ -76,11 +76,11 @@ public class Lesson1 {
 
     // These work mostly like you'd expect...
 
-    int exampleInt1 = 3;
-    int exampleInt2 = 2;
+    int exampleInt1 = 3, exampleInt2 = 2; // Shortcut for declaring multiple variables at once
 
     double exampleDouble1 = 0.5;
     double exampleDouble2 = 6.0;
+    double exampleDouble3 = 1.2e3; // scientific notation okay!
 
     System.out.println(exampleInt1 * exampleInt2); // Prints 6
     System.out.println(exampleDouble1 * exampleDouble2);  // Prints 3.0
