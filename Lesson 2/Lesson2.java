@@ -114,7 +114,7 @@ public class Lesson2 {
     }
 
     // If you're comparing with a bunch of constants you also have another option
-    // switch case!
+    // switch case! It works on integers, characters, and strings!
 
     if (x == 0) {
 
