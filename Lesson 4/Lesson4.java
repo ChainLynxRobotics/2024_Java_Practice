@@ -49,7 +49,7 @@ public class Lesson4 {
     // they say yes or no (case insensitive, whitespace insensitive)
 
     Scanner scanner = new Scanner(System.in);
-    Stirng input;   // We can't use ahe while loop since we won't have gotten input until the first loop.
+    String input;   // We can't use ahe while loop since we won't have gotten input until the first loop.
     do {
       System.out.println("Yes or no: ");  // Ask the user a question and keep asking until we get a yes/no answer.
       input = scanner.nextLine().strip(); // Get the next line of input and strip the whitespace.
