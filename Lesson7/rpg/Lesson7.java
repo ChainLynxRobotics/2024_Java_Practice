@@ -1,10 +1,11 @@
+package rpg;
+
 import java.util.Scanner;
 
-import lesson7.Character;
 
-public class Lesson6 {
+public class Lesson7 {
 
-  /**
+    /**
    * Prompts the user until they give a yes/no answer.
    * @return true if yes, false otherwise
    */
@@ -26,38 +27,19 @@ public class Lesson6 {
     return input.equals("yes");
   }
 
-  /**
-   * Counts the number of times a number shows up in an array.
-   * @param arr The array to search
-   * @param num The number to count
-   */
-  public static int count(int[] arr, int num) {
-    //          ^^^       ^^^^^^^^^^^^^^^^^^
-    //    input type          inputs! (parameters)
-    int count = 0;
-
-    for (int i = 0; i < arr.length; i++) {
-      if (arr[i] == num) {
-        count++;
-      }
-    }
-
-    return count; // output of the function
-  }
-
   public static void main(String[] args) {
-    // boolean isYes = promptYesOrNo();
-    Character myCharacter = new Character("Emmy", 100);
+    // prints out the inputs to this program
+    // java Lesson7.java arg1 would print "Input #0: arg1
 
-    if (prompt("Are you satisfied with your character " + myCharacter.name + "?")) {
-      System.out.println("You said yes! YAY!");
+    for (int i = 0; i < args.length; i++) {
+      System.out.println("Input #" + i +  ": " + args[i]);
     }
 
-    int[] arr = {1, 1, 2, 2, 3, 3, 3, 4};
-    int numToSearch = 1;
-    int count = count(arr, numToSearch);
-    System.out.println("Number of " + numToSearch + "'s is: " + count);
+    // use the constructor to create a new character
+    Character characterEmmy = new Character("Emmy", 100, 10, 0);
+    Character characterEmmy2 = new Character("Emmy 2", 200, 5, 0);
 
-
+    System.out.println("Emmy's attack: " + characterEmmy.atk);
+    System.out.println("Emmy 2's attack: " + characterEmmy2.atk);
   }
 }
