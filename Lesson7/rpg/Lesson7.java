@@ -39,7 +39,7 @@ public class Lesson7 {
     Character characterEmmy = new Character("Emmy", 100, 10, 0);
     Character characterEmmy2 = new Character("Emmy 2", 200, 5, 0);
 
-    System.out.println("Emmy's attack: " + characterEmmy.atk);
-    System.out.println("Emmy 2's attack: " + characterEmmy2.atk);
+    System.out.println(characterEmmy);
   }
 }
+
