@@ -3,6 +3,7 @@ package rpg;
 import java.util.Scanner;
 
 
+
 public class Lesson7 {
 
     /**
@@ -34,12 +35,29 @@ public class Lesson7 {
     for (int i = 0; i < args.length; i++) {
       System.out.println("Input #" + i +  ": " + args[i]);
     }
-
     // use the constructor to create a new character
-    Character characterEmmy = new Character("Emmy", 100, 10, 0);
-    Character characterEmmy2 = new Character("Emmy 2", 200, 5, 0);
+    RPGCharacter characterEmmy = new RPGCharacter(
+      "Emmy",
+      100,
+      30,
+      50,
+      10,
+      20,
+      0
+    );
 
-    System.out.println(characterEmmy);
+    RPGCharacter characterEmmy2 = new RPGCharacter(
+      "Emmy2",
+      150,
+      0,
+      80,
+      15,
+      0,
+      5
+    );
+
+    BattleEngine.getInstance().battle(characterEmmy, characterEmmy2);
+    // System.out.println(characterEmmy);
   }
 }
 
