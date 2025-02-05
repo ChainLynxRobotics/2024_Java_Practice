@@ -56,6 +56,7 @@ public class Lesson7 {
       5
     );
 
+
     BattleEngine.getInstance().battle(characterEmmy, characterEmmy2);
     // System.out.println(characterEmmy);
   }

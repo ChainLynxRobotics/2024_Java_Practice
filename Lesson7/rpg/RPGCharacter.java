@@ -95,7 +95,7 @@ public class RPGCharacter {
 
     this.stamina -= 10;
     this.mana -= 10;
-    c.hitpoints -= this.magicAtk;
+    c.hitpoints = Math.max(c.hitpoints - this.magicAtk, 0);
   }
 
   /**
@@ -112,14 +112,16 @@ public class RPGCharacter {
     }
 
     this.stamina -= 10;
-    c.hitpoints -= Math.max(this.atk - c.def, 0);
+    c.hitpoints = Math.max(c.hitpoints - Math.max(this.atk - c.def, 0), 0);
   }
 
   /**
    * Recover 20 stamina.
    */
   public void rest() {
-    this.stamina += 20;
+    // this.stamina += 20;
+    this.stamina = Math.min(this.stamina + 20, this.maxStamina);
+
   }
 
   /**
@@ -130,7 +132,13 @@ public class RPGCharacter {
       return;
     }
 
-    this.hitpoints += 25;
+    this.hitpoints = Math.min(this.hitpoints + 25, this.maxHitpoints);
+
+    /*
+    if (this.hitpoints > this.maxHitpoints) {
+      this.hitpoints = this.maxHitpoints;
+    }
+    */
   }
 
   public String createBar(int current, int total) {
@@ -138,18 +146,39 @@ public class RPGCharacter {
     double percentage = (double)current / (double)total;
     int numBars = (int)(MAX_BARS * percentage);
     int numSpaces = MAX_BARS - numBars;
-    String bar = "[";
+
+    int r = 0, g = 0, b = 0;
+
+    if (percentage > .5) {
+      r = 0;
+      g = 114;
+      b = 24;
+    }
+    else if (percentage > .2 && percentage <= .5) {
+      r = 237;
+      g = 229;
+      b = 0;
+    }
+    else if (percentage <= .2) {
+      r = 255;
+      g = 0;
+      b = 0;
+    }
+
+    String bar = String.format("|\033[48;2;%d;%d;%dm", r, g, b);
 
 
     for (int i = 0; i < numBars; i++) {
-      bar += "=";
+      bar += " ";
     }
+
+    bar += "\033[0m";
 
     for (int i = 0; i < numSpaces; i++) {
       bar += " ";
     }
 
-    bar += "] (" + current + "/" + total + ")";
+    bar += "| (" + current + "/" + total + ")";
     return bar;
   }
 
