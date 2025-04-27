@@ -45,7 +45,7 @@ public class BattleEngine {
         this.m_printOption(options[i]);
       }
 
-      System.out.print("Your choice: ");
+      System.out.print("Your choice: "));
       input = SCANNER.nextLine();
 
     } while (!this.m_isValidInput(input, options));
